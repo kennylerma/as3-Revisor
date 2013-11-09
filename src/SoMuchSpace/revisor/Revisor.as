@@ -22,7 +22,7 @@ package SoMuchSpace.revisor
 			result.testCaseList.push(_currentTestCase);
 		}
 		
-		static private function clear():void
+		static public function clear():void
 		{
 			_result = new TestResult();
 		}
