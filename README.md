@@ -4,7 +4,7 @@ as3-Revisor
 Small ActionScript 3.0 framework for unit testing inspired by QUnit.
 
 ####Example
-The following example runs two test cases with a few tests in them, write the result to the output and clears result for the futher usage.
+The following example runs two test cases with a few tests in them, writes the result to the output and clears result for the futher usage.
 ```as3
 Revisor.test("First example test case", function():void {
 	Revisor.equal(2 + 2, 4, "Equal example. Passed.");
