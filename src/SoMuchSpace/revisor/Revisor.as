@@ -91,6 +91,37 @@ package SoMuchSpace.revisor
 			return testResult;
 		}
 		
+		static public function sorted(data:*, compareFunction:Function, message:String = ""):Boolean
+		{
+			checkData(data);
+			var testResult:Boolean = true;
+			for (var i:int = 1; i < data.length; i++) 
+			{
+				if (compareFunction.call(null, data[i - 1], data[i]) == 1)
+				{
+					testResult = false;
+					break;
+				}
+			}
+			if (_currentTestCase)
+			{
+				createNewTest(_currentTestCase, "Sorted array or vector", data, message, testResult);
+			}
+			return testResult;
+		}
+		
+		static private function checkData(data:*):void 
+		{
+			var test:Boolean = data is Array || data is Vector.<*> || 
+												data is Vector.<Number> || 
+												data is Vector.<int> || 
+												data is Vector.<uint>;
+			if (!test)
+			{
+				throw new ArgumentError("Data is not Array or Vector");
+			}
+		}
+		
 		static public function get result():TestResult 
 		{
 			return _result;
