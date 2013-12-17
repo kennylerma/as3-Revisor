@@ -42,11 +42,7 @@ package SoMuchSpace.revisor
 				for (var j:int = 0; j < testCase.testList.length; j++) 
 				{
 					var test:Test = testCase.testList[j];
-					if (test.passed)
-					{
-						string += "    "+(j+1)+") Passed.\n";
-					}
-					else
+					if (!test.passed)
 					{
 						string += "!   " + (j + 1) + ") Failed.\n";
 						if (test.message)
@@ -59,15 +55,13 @@ package SoMuchSpace.revisor
 							string += "not ";
 						}
 						string += printValue(test.expected) + "\n";
-						string += "        Result:   " + printValue(test.actual)+"\n";
+						string += "        Result:   " + printValue(test.actual)+"\n\n";
 					}
 				}
-				string += "    Passed: " + testCase.testsPassed + "/" + testCase.testsTotal+"\n";
 				if (testCase.testsFailed)
 				{
 					string += "    Failed: " + testCase.testsFailed + "/" + testCase.testsTotal+"\n";
 				}
-				string += "\n";
 			}
 			string += "Passed: " + testsPassed + "/" + testsTotal+"\n";
 			if (testsFailed)
